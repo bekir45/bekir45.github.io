@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Башташ - продажа и установка памятников в наличии любой камень</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #8e44ad;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --highlight: #9b59b6;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Шапка сайта */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .phone {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .work-hours {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background: var(--highlight);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* О нас */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Услуги */
+        .services {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: var(--accent-color);
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Галерея */
+        .gallery {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Цены */
+        .pricing {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .pricing-table th, .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        /* Контакты */
+        .contact {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+            width: 40px;
+        }
+        
+        .map {
+            height: 300px;
+            background: #eee;
+            border-radius: 10px;
+            margin-top: 2rem;
+            overflow: hidden;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Футер */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .contact-info {
+                align-items: center;
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-monument"></i>
+                <div class="logo-text">Башташ Крым</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="phone"><i class="fas fa-phone"></i> +7 (978) 855-72-71</div>
+                <div class="work-hours">Пн-Вс</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Башташ</h1>
+            <p>Качественные памятники, изготовление и установка под ключ.</p>
+            <a href="#contact" class="cta-button">Заказать консультацию</a>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О нашей компании</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Компания "Башташ" более 15 лет занимается изготовлением и установкой памятников. Мы создаем уникальные произведения из натурального камня, которые станут достойным символом памяти о ваших близких.</p>
+                    <p>Наши специалисты - мастера с многолетним опытом работы. Мы используем только качественные материалы: гранит, мрамор, габбро. Каждый памятник изготавливается индивидуально по вашим пожеланиям.</p>
+                    <p>Наши памятники отличаются высоким качеством исполнения и долговечностью.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.postimg.cc/0NJTrMBH/IMG-d4d368f71efd930de7005496044da3e4-V.jpg" alt="Мастер за работой">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Изготовление памятников</h3>
+                        <p>Производство памятников из гранита, мрамора и габбро по индивидуальным проектам. Разработка уникального дизайна с учетом ваших пожеланий.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Доставка и установка</h3>
+                        <p>Профессиональная установка с соблюдением всех технологических норм.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Благоустройство</h3>
+                        <p>Комплексное благоустройство места захоронения: изготовление и установка оградок, цветников, столиков, скамеек и других элементов.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Гравировка и оформление</h3>
+                        <p>Художественная гравировка портретов, текстов и орнаментов. Нанесение позолоты и оформление памятников декоративными элементами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Gpv07nK7/IMG-20230723-171330.jpg" alt="Памятник 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/JhSnJ8np/IMG-20230723-171341.jpg" alt="Памятник 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/8Ckp65Nd/IMG-20230723-171359.jpg" alt="Памятник 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/RC2wLr3J/IMG-20230725-144122.jpg" alt="Памятник 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Bn4LmJJb/IMG-20230725-144112.jpg" alt="Памятник 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/rssg05P6/IMG-55f90b5529ae9a8f306f5e18197c3b51-V.jpg" alt="Памятник 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/440Q270d/IMG-edb5bd3264a524129918114e915b857d-V.jpg" alt="Памятник 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/gc1BXTmN/IMG-777f8fa6d5b9a389b5f78f37bb1d0de8-V.jpg" alt="Памятник 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/bJWLnZcs/IMG-4bacab5e6a2e419cf53a6225ef8ce16e-V.jpg" alt="Памятник 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/7Zw9SvcM/IMG-53f2247f8f9e0169affdeb9149cfcf45-V.jpg" alt="Памятник 10">
+                </div> 
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L4kZLqMw/IMG-23c9a80225df6c20c41ac1cec7190ae6-V.jpg" alt="Памятник 11">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/hPpzZHv0/IMG-724114f09dd725f6380725b3c2f42ac1-V.jpg" alt="Памятник 12">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MGjnTHDs/IMG-1b95c59b97f3c220a76a630eb116e15f-V.jpg" alt="Памятник 13">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Bn2WnGFT/IMG-ff70c48cc1bb62f7f2d3bcafc47f3cfc-V.jpg" alt="Памятник 14">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/d09zGm4D/IMG-ba007144f3858276a7ae4a2bd5a75ed0-V.jpg" alt="Памятник 15">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/HkDKKPNV/IMG-4283eb5d06aca273209b89b023f06728-V.jpg" alt="Памятник 16">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/fb2Q6fXp/IMG-1e405e1094bad7e44468b91dbce5c6d0-V.jpg" alt="Памятник 17">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/wj9KMGQn/IMG-269950c6ef4afd7a18e880f2593240c1-V.jpg" alt="Памятник 18">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Bnbr21RC/IMG-94010c980f388fe57ceb7e4fe0a83692-V.jpg" alt="Памятник 19">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zG4cW2CJ/IMG-d5a887767d3c30564284ef737f804e31-V.jpg" alt="Памятник 20">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/90Np2z1W/IMG-b3f953a82a38d2fd368ceea8e2f0238e-V.jpg" alt="Памятник 21">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MT6bj1F6/IMG-06a451689288aeda133e957d040d5e3e-V.jpg" alt="Памятник 22">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/sxBWpm9r/IMG-367ad4df2bdb32d9f4fa19e507d3f75a-V.jpg" alt="Памятник 23">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/XvHcdrS9/IMG-67b0f6272bbfca5802f97eb8d88c34f8-V.jpg" alt="Памятник 24">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/vZGWKrGW/IMG-dd110d4c832ba6a3a230387584af4ca7-V.jpg" alt="Памятник 25">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/50QvzpmM/IMG-20191123-130830.jpg" alt="Памятник 26">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/8PmvL7Ls/IMG-20191123-130842.jpg" alt="Памятник 27">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/s2vZFKqZ/IMG-20191123-131814.jpg" alt="Памятник 28">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/gjdJ0KSs/IMG-20200913-133008.jpg" alt="Памятник 29">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/dts3P4Tt/IMG-20200913-133015.jpg" alt="Памятник 30">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/sDLk947g/IMG-20201113-101331.jpg" alt="Памятник 31">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/d3p5dnpM/IMG-20201113-101319.jpg" alt="Памятник 32">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/KYfQQmwD/IMG-20210526-185554.jpg" alt="Памятник 33">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/v8Jj4Zs4/IMG-20211031-145857.jpg" alt="Памятник 34">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pXMG2cf8/IMG-20220906-161245.jpg" alt="Памятник 35">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/CKRHCbCS/IMG-20220906-161251.jpg" alt="Памятник 36">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L8nZG2JV/IMG-20221126-141521.jpg" alt="Памятник 37">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/SN5K28KW/IMG-20221126-142606.jpg" alt="Памятник 38">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/52LfXRTV/IMG-20221215-113215.jpg" alt="Памятник 39">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L4WSNSMS/IMG-20221215-113351.jpg" alt="Памятник 40">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/kGQBqH7f/IMG-20221215-114004.jpg" alt="Памятник 41">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xTrf9QpR/IMG-20221215-114057.jpg" alt="Памятник 42">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/dQjHVm4x/IMG-20241104-153927.jpg" alt="Памятник 43">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/FRQp97cv/IMG-20240328-152748.jpg" alt="Памятник 44">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/1X3pt63k/IMG-20240328-152843.jpg" alt="Памятник 45">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/N0vmXZ07/IMG-20240328-152902.jpg" alt="Памятник 46">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/CLWqy9bT/IMG-20240328-152915.jpg" alt="Памятник 47">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/3xmD39Zy/IMG-20240328-152935.jpg" alt="Памятник 48">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/dttYs0mG/IMG-20250324-145817.jpg" alt="Памятник 49">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xdHrxNnV/IMG-20250324-145836.jpg" alt="Памятник 50">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/D0wMTSkZ/IMG-20250324-150622.jpg" alt="Памятник 51">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/bvdZr24n/IMG-20250621-153029-434.jpg" alt="Памятник 52">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/3JKJWvvw/IMG-20250621-153029-705.jpg" alt="Памятник 53">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MT7qp6ZR/IMG-20250621-153029-630.jpg" alt="Памятник 54">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/WzsjDBty/IMG-20250621-153034-540.jpg" alt="Памятник 55">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/FssNhXMd/IMG-20250621-153034-639.jpg" alt="Памятник 56">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/bJ9fjmL9/IMG-20250621-153037-674.jpg" alt="Памятник 57">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L5ydJhcq/IMG-20250621-153040-287.jpg" alt="Памятник 58">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MZtJPrnW/IMG-20250621-153043-940.jpg" alt="Памятник 59">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/15jhPn02/IMG-20250621-153046-804.jpg" alt="Памятник 60">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/76VdRfYB/IMG-20250621-153049-453.jpg" alt="Памятник 61">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/PrN96fG4/IMG-20250621-153051-800.jpg" alt="Памятник 62">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/nc55N8pt/IMG-20250621-153055-195.jpg" alt="Памятник 63">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/7LrRYg5s/IMG-20250621-153058-401.jpg" alt="Памятник 64">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Bv5V8XDq/IMG-20250621-153101-126.jpg" alt="Памятник 65">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/rmQZJ3Q3/IMG-20250621-153103-786.jpg" alt="Памятник 66">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/d33HS6f1/IMG-20250621-153106-969.jpg" alt="Памятник 67">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/4NK268t2/IMG-20250621-153112-221.jpg" alt="Памятник 68">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/T3gkSptr/IMG-20250621-153115-745.jpg" alt="Памятник 69">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/cH9TYYJN/IMG-20250621-153119-760.jpg" alt="Памятник 70">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/kMHfgxZQ/IMG-20250621-153125-346.jpg" alt="Памятник 71">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/P5symddN/IMG-20250621-153130-414.jpg" alt="Памятник 72">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/PqKMsZY8/IMG-20250621-153130-329.jpg" alt="Памятник 73">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/C11sF1sr/IMG-20250621-153135-899.jpg" alt="Памятник 74">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/DZMdmTCv/IMG-20250621-153138-472.jpg" alt="Памятник 75">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/C5nCqQtj/IMG-20250621-153143-945.jpg" alt="Памятник 76">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/v84ChHwv/IMG-20250621-153144-058.jpg" alt="Памятник 77">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/GhYV0728/IMG-20250621-153144-442.jpg" alt="Памятник 78">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/BnBzbj2J/IMG-20250621-153147-931.jpg" alt="Памятник 79">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/PqfRwdMY/IMG-20250621-153151-785.jpg" alt="Памятник 80">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/4dqLqVRQ/IMG-20250621-153152-305.jpg" alt="Памятник 81">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цены -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Примерные цены</h2>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Тип памятника</th>
+                        <th>Материал</th>
+                        <th>Размер</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Памятники</td>
+                        <td>Мрамор и гранит</td>
+                        <td>80x40x7 см</td>
+                        <td class="price">от 30 000 руб.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; margin-top: 1.5rem;">* Точная стоимость рассчитывается индивидуально после консультации</p>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>г. Симферополь</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+7 (978) 855-72-71</p>
+                            <p>+7 (978) 305-24-03</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>rasim.kendjaliev@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>Режим работы</h3>
+                            <p>Пн-Вс: 9:00-18:00</p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.735139015071!2d37.6174923!3d55.775847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311a!2z0JrRgNCw0YHQvdC-0Y_RgNGB0LosINCc0L7RgdC60LLQsA!5e0!3m2!1sru!2sru!4v1687349677888!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Башташ</h3>
+                    <p>Изготовление и установка памятников из натурального камня.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Наши услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Изготовление памятников</a></li>
+                        <li><a href="#">Установка памятников</a></li>
+                        <li><a href="#">Гравировка портретов</a></li>
+                        <li><a href="#">Ремонт памятников</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Выбор материала</a></li>
+                        <li><a href="#">Частые вопросы</a></li>
+                        <li><a href="#">Отзывы клиентов</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> г. Симферополь</li>
+                        <li><i class="fas fa-phone"></i> +7 (978) 855-72-71</li>
+                        <li><i class="fas fa-envelope"></i> rasim.kendjaliev@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Пн-Вс</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 "Башташ". Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Обработка формы
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Здесь должна быть логика отправки формы
+                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
